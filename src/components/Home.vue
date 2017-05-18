@@ -12,7 +12,6 @@
       MindCar最初由汽车行业资深人士为主要成员组成的创始团队，现在已经形成一套以算法、产品、硬件、设计、运营在内的完整体系，<br>团队成员来自于国内外知名院校的毕业生，以及来自知名企业与研究机构。
     </span>
     <br><br>
-    <br><br>
     <span class="desc-bottom">
       我们致力于通过图像识别、机器学习和人工智能技术，为智慧城市交通，驾驶辅助乃至自动驾驶做出更大的贡献。
     </span>
@@ -87,16 +86,20 @@ export default {
   .title-desc{
      margin:116px auto 60px
   }
-  .bottom{
-    width: 1250px;
-    margin: 0 auto;
-    overflow: hidden;
-    margin-bottom: 144px;
+
+  @media screen and (min-width: 1280px) {
+    .bottom{
+      width: 1250px;
+      margin: 0 auto;
+      overflow: hidden;
+      margin-bottom: 144px;
+    }
   }
+
 
   .bottom img{
     max-width: 574px;
-    min-width: 480px;
+    min-width: 320px;
     max-height: 383px;
     margin-right: 90px;
   }
@@ -112,7 +115,7 @@ export default {
     box-sizing: border-box;
   }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1280px) {
     .bottom>*{
       float: none;
       display: block;

@@ -59,8 +59,13 @@
 		line-height: 24px;
 	}
 	.top{
-		
 		height: 212px;
 		margin-top: 32px;
 	}
+	 @media screen and (max-width: 950px) {
+	 	.item{
+	 		width: 40%;
+	 		margin: 5% 5%;
+	 	}
+	 }
 </style>

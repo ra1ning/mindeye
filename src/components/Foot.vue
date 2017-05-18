@@ -108,7 +108,7 @@
 		line-height: 46px;
 	}
     
-	@media screen and (max-width: 800px) {
+	@media screen and (max-width: 1280px) {
 		.right{
 		  float: left!important;
 		}

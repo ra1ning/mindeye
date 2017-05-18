@@ -1,7 +1,5 @@
 <template>
-	<div class="three">
-		
-	</div>
+	<div class="three"></div>
 </template>
 <script>
 	function start(){
@@ -120,7 +118,11 @@
 		width: 100%;
 		overflow: hidden;
 	}
-	canvas{
-		/*z-index: 100*/
-	}
+	@media screen and (max-width: 800px) {
+	    .three{
+	    	height: 300px!important;
+	    	display: none;
+	    }
+  	}
+
 </style>
