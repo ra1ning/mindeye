@@ -1,39 +1,41 @@
 <template>
-  <nav class="nav" :style="{backgroundImage:'url('+logo+')',backgroundRepeat:'no-repeat',backgroundPosition:'75px center'}">
-    <NavItem
-      :options="{
-        title:'在线咨询',
-        items:[
-          {title:'按行业',path:'#'},
-          {title:'按业务',path:'#'}]}">
-    </NavItem>
-    <NavItem
-      :options="{
-        title:'我们', 
-        items:[
-          {title:'关于机智',path:'#'},
-          {title:'公司动态',path:'#'},
-          {title:'联系我们',path:'#'}]}">
-    </NavItem>
-    <NavItem
-      :options="{
-        title:'技术', 
-        items:[]}">
-    </NavItem>
-    <NavItem
-      :options="{
-        title:'案例', 
-        items:[
-          {title:'按行业',path:'#'},
-          {title:'按业务',path:'#'}]}">
-    </NavItem>
-    <NavItem
-      :options="{
-        title:'业务', 
-        items:[
-          {title:'智能地产',path:'#'},
-          {title:'智能安防',path:'#'}]}">
-    </NavItem>
+  <nav class="nav">
+    <div class="wrap" :style="{backgroundImage:'url('+logo+')',backgroundRepeat:'no-repeat',backgroundPosition:'0px center'}">
+      <NavItem
+        :options="{
+          title:'在线咨询',
+          items:[
+            {title:'按行业',path:'#'},
+            {title:'按业务',path:'#'}]}">
+      </NavItem>
+      <NavItem
+        :options="{
+          title:'我们', 
+          items:[
+            {title:'关于机智',path:'#'},
+            {title:'公司动态',path:'#'},
+            {title:'联系我们',path:'#'}]}">
+      </NavItem>
+      <NavItem
+        :options="{
+          title:'技术', 
+          items:[]}">
+      </NavItem>
+      <NavItem
+        :options="{
+          title:'案例', 
+          items:[
+            {title:'按行业',path:'#'},
+            {title:'按业务',path:'#'}]}">
+      </NavItem>
+      <NavItem
+        :options="{
+          title:'业务', 
+          items:[
+            {title:'智能地产',path:'#'},
+            {title:'智能安防',path:'#'}]}">
+      </NavItem>
+    </div>
   </nav>
 </template>
 
@@ -61,6 +63,10 @@ export default {
     height: 100px;
     box-sizing: border-box;
     z-index: 100;
-    
+  }
+  .wrap{
+    max-width: 1366px;
+    margin: 0 auto;
+    height: 100%;
   }
 </style>

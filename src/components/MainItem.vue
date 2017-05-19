@@ -15,7 +15,7 @@
 <style scoped>
 	.item{
 		text-align:center;
-		height: 426px;
+		height: 450px;
 		width: 20%;
 		float: left;
 		margin: 0 2.5%;
@@ -66,6 +66,23 @@
 	 	.item{
 	 		width: 40%;
 	 		margin: 5% 5%;
+	 	}
+	 }
+	 @media screen and (max-width: 600px) {
+	 	.item{
+	 		font-size: 12px
+	 	}
+	 	img{
+	 		width: 60px;
+	 		height: 60px;
+	 		margin-bottom: 12px;
+	 	}
+	 	.top{
+	 		height: 180px;
+	 		margin-top: 18px;
+	 	}
+	 	h4{
+	 		font-size: 14px;
 	 	}
 	 }
 </style>

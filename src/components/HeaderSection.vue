@@ -1,186 +1,81 @@
 <template>
-<div id="nav">
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Projects</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-</div>
+	<div>
+	  <ul :style="show_nav?'height:180px;transition:all 0.3s':'height:0px;transition:all 0.3s'" class="nav">
+	    <li><a href="#">业务</a></li>
+	    <li><a href="#">案例</a></li>
+	    <li><a href="#">技术</a></li>
+	    <li><a href="#">我们</a></li>
+	    <li><a href="#">在线咨询</a></li>
+	  </ul>
+	  <div class="hamburger">
+	  	<img class="banner" src="../assets/banner.jpg" />
+	  	<img class="logo" src="../assets/logowhite.png" />
+	  	<a @click="showNav"></a>
+	  </div>
+	</div>
+  
 </template>
 <script type="text/javascript">
-	import responsiveNav from 'responsive-nav'
-	
+	var logo = require('../assets/logo.png')
 	export default {
 		data(){
 			return {
-
+        		show_nav: false,
+        		logo: logo
 			}
 		},
+    methods:{
+      showNav:function(){
+        this.show_nav=!this.show_nav
+      }
+    },
 		mount: function(){
-			var navigation = responsiveNav("#nav");
+			
 		}
 	}
 </script>
 <style scoped>
-	/* ------------------------------------------
-  NECESSARY STYLES FOR RESPONSIVE NAV
---------------------------------------------- */
-
-.nav-collapse ul {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  display: block;
-  list-style: none;
-}
-
-.nav-collapse li {
-  width: 100%;
-  display: block;
-}
-
-.js .nav-collapse {
-  clip: rect(0 0 0 0);
-  max-height: 0;
-  position: absolute;
-  display: block;
-  overflow: hidden;
-  zoom: 1;
-}
-
-.nav-collapse.opened {
-  max-height: 9999px;
-}
-
-@media screen and (min-width: 40em) {
-  .js .nav-collapse {
-    position: relative;
-    max-height: none;
+  .hamburger a{
+    display: block;
+    width: 10%;
+    height: 10%;
+    position: absolute;
+    background: url(../assets/menu.png) no-repeat center center;
+    background-size: 40% 40%;
+    right: 0;
+    top: 0
   }
-  #nav-toggle {
-    display: none;
+  .banner{
+  	width: 100%
   }
-}
-
-
-/* ------------------------------------------
-  DEMO PAGE'S STYLES
---------------------------------------------- */
-body, div,
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, dl, dt, dd, ol, ul, li, hr,
-fieldset, form, label, legend, th, td,
-article, aside, figure, footer, header, hgroup, menu, nav, section,
-summary, hgroup {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-a:active,
-a:hover {
-  outline: 0;
-}
-
-@-webkit-viewport { width: device-width; }
-@-moz-viewport { width: device-width; }
-@-ms-viewport { width: device-width; }
-@-o-viewport { width: device-width; }
-@viewport { width: device-width; }
-
-body {
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  color: #37302a;
-  background: #fff;
-  font: normal 100%/1.4 sans-serif;
-}
-
-.nav-collapse,
-.nav-collapse * {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.nav-collapse,
-.nav-collapse ul {
-  list-style: none;
-  width: 100%;
-  float: left;
-}
-
-.nav-collapse li {
-  float: left;
-  width: 100%;
-}
-
-@media screen and (min-width: 40em) {
-  .nav-collapse li {
-    width: 25%;
-    *width: 24.9%; /* IE7 Hack */
-    _width: 19%; /* IE6 Hack */
+  .hamburger{
+  	position: relative;
+  	display: block;
   }
-}
-
-.nav-collapse a {
-  color: #fff;
-  text-decoration: none;
-  width: 100%;
-  background: #f4421a;
-  border-bottom: 1px solid white;
-  padding: 0.7em 1em;
-  float: left;
-}
-
-@media screen and (min-width: 40em) {
-  .nav-collapse a {
+  .logo{
+  	width: 10%;
+  	position: absolute;
+  	left: 20px;
+  	top: 5%;
+  }
+  .nav{
     margin: 0;
-    padding: 1em;
-    float: left;
+    padding: 0;
+    list-style: none;
     text-align: center;
-    border-bottom: 0;
-    border-right: 1px solid white;
+    overflow: hidden;
+    font-size: 20px;
   }
-}
-
-.nav-collapse ul ul a {
-  background: #ca3716;
-  padding-left: 2em;
-}
-
-@media screen and (min-width: 40em) {
-  .nav-collapse ul ul a {
-    display: none;
+  .nav li{
+    height: 35px;
+    line-height: 35px;
+    background: #243441;
+    font-size: 16px;
+    border-bottom: solid 1px #666
   }
-}
-
-#nav-toggle {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 0;
-  cursor: pointer;
-  width: 70px;
-  height: 55px;
-  float: right;
-  text-indent: -9999px;
-  overflow: hidden;
-  background: #f4421a url("../assets/hamburger.gif") no-repeat 50% 33%;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 1.3), screen and (min--moz-device-pixel-ratio: 1.3), screen and (-o-min-device-pixel-ratio: 2 / 1), screen and (min-device-pixel-ratio: 1.3), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
-  #nav-toggle {
-    background-image: url("../assets/hamburger-retina.gif");
-    -webkit-background-size: 100px 100px;
-    -moz-background-size: 100px 100px;
-    -o-background-size: 100px 100px;
-    background-size: 100px 100px;
+  a{
+    color:#fff;
+    text-decoration: none;
+    cursor: pointer;
   }
-}
-
 </style>

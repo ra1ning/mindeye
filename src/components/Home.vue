@@ -1,22 +1,23 @@
 <template>
 <div class="container">
-  <Banner/>
   <NavSection :class="trans"></NavSection>
-  <HeaderSection></HeaderSection>
+  <Banner/>
+  <HeaderSection class="phone-nav"></HeaderSection>
   <TitleSection titleName="主要业务" class="title"></TitleSection>
   <MainSection></MainSection>
   <TitleSection titleName="关于我们" class="title-desc"></TitleSection>
   <div class="bottom">
     <img :src="bottom">
     <p><span style="font-size18px;color:#9c9c9c">
-      MindCar最初由汽车行业资深人士为主要成员组成的创始团队，现在已经形成一套以算法、产品、硬件、设计、运营在内的完整体系，<br>团队成员来自于国内外知名院校的毕业生，以及来自知名企业与研究机构。
+      MindCar最初由汽车行业资深人士为主要成员组成的创始团队，现在已经形成一套以算法、产品、硬件、设计、运营在内的完整体系，团队成员来自于国内外知名院校的毕业生，以及来自知名企业与研究机构。
     </span>
     <br><br>
     <span class="desc-bottom">
       我们致力于通过图像识别、机器学习和人工智能技术，为智慧城市交通，驾驶辅助乃至自动驾驶做出更大的贡献。
     </span>
+    <span class="more">了解更多</span>
     </p>
-    <button>了解更多</button>
+    
   </div>
   
   <Foot></Foot>
@@ -32,11 +33,10 @@ import bottom from '../assets/bottom.png'
 import Banner from './Banner'
 import HeaderSection from './HeaderSection'
 export default {
-  components: {  NavSection,HeaderSection,MainSection, Foot, TitleSection, Banner },
+  components: {  NavSection,HeaderSection,MainSection, Foot, TitleSection, Banner},
   data(){
     return {
       trans: 'noTrans',
-      // banner: banner,
       bottom: bottom
     }
   },
@@ -51,19 +51,15 @@ export default {
   },
   beforeMount(){
     window.addEventListener('scroll', this.handleScroll);
-    console.log(this.bottom)
   }
 }
 </script>
 
 <style scoped>
   .container{
-    width: 100%;
     box-sizing: border-box;
   }
-  img{
-    width: 100%;
-  }
+
   .trans{
     background-color: rgba(0,0,0,1);
     transition: all 0.5s;
@@ -75,37 +71,41 @@ export default {
   .title{
     margin: 90px auto 84px;
   }
-  p{
-    text-align: center;
-    line-height: 32px;
-    max-width: 584px;
-    min-width: 480px;
-    font-size: 18px;
-    text-align: left;
-  }
   .title-desc{
      margin:116px auto 60px
   }
 
-  @media screen and (min-width: 1280px) {
-    .bottom{
-      width: 1250px;
-      margin: 0 auto;
-      overflow: hidden;
-      margin-bottom: 144px;
-    }
+  .bottom{
+    margin: 0 auto;
+    overflow: hidden;
   }
 
-
   .bottom img{
-    max-width: 574px;
-    min-width: 320px;
-    max-height: 383px;
+    width: 574px;
     margin-right: 90px;
   }
   .bottom>*{
     float: left;
+    display: block;
   }
+
+  .more{
+    width: 130px;
+    height: 48px;
+    line-height: 48px;
+    border: solid 2px #00a0ea;
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  p{
+    line-height: 32px;
+    width: 590px;
+    font-size: 18px;
+    text-align: left;
+  }
+  
   .desc-bottom{
     height: 82px;
     border-left: 10px solid #00a9ea;
@@ -114,23 +114,71 @@ export default {
     padding: 10px;
     box-sizing: border-box;
   }
+  .phone-nav{
+      display: none;
+  }
 
-  @media screen and (max-width: 1280px) {
-    .bottom>*{
-      float: none;
-      display: block;
-      margin-left: auto!important;
-      margin-right: auto!important;
-      padding:20px;
-    }
+/*大于1280px;单排定宽居中*/
+  @media screen and (min-width: 1280px) {
     .bottom{
-      width: auto!important;
+      width: 1280px;
       margin: 0 auto;
       overflow: hidden;
       margin-bottom: 144px;
     }
-    .right{
-      float: left!important;
+  }
+
+/*小于1280,大于920单排自适应*/
+  @media screen and (max-width: 1280px) and (min-width: 920px){
+    .bottom{
+      width: 90%;
+      margin: 0 auto;
+      overflow: hidden;
+      margin-bottom: 144px;
+    }
+    .bottom>p,.bottom>img{
+      font-size: 14px;
+      width: 40%;
+      margin-top: 0;
+      line-height: 26px;
+    }
+    .bottom>img{
+      margin-right: 20px;
+      width: 56%;
+    }
+    .desc-bottom{
+      height: auto!important;
     }
   }
+
+  /*小于920px,隐藏手机导航栏,双排自适应*/
+  @media screen and (max-width: 920px) {
+    .trans,.noTrans{
+      display: none!important;
+    }
+    .title,.title-desc{
+      margin: 30px auto 30px;;
+    }
+    .phone-nav{
+      display: block;
+    }
+    .bottom>*{
+      float: none;
+      margin:10px auto!important;
+      width: 90%!important;
+      box-sizing: border-box;
+      font-size: 14px;
+      line-height: 22px;
+    }
+    .bottom{
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .desc-bottom{
+      height: auto!important;
+    }
+  }
+
+
 </style>

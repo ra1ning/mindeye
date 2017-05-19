@@ -1,5 +1,8 @@
 <template>
-	<div class="three"></div>
+	<div class="three">
+		<h1 class="slogan">AI驱动世界</h1>
+		<img src="../assets/earth_a.png">
+	</div>
 </template>
 <script>
 	function start(){
@@ -7,6 +10,7 @@
 		var three;
 		var camera, scene, renderer;
 		var particles, particle, count = 0;
+		var sphere;
 		var mouseX = 0, mouseY = 0;
 		var windowHalfX = window.innerWidth / 2;
 		var windowHalfY = window.innerHeight / 2;
@@ -29,6 +33,19 @@
 					context.fill();
 				}
 			} );
+		// var sphereGeometry = new THREE.SphereGeometry(400, 20, 20);
+  //       var sphereMaterial = new THREE.MeshBasicMaterial({color: 0x209fd3, wireframe: true});
+  //       sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+
+  //       // position the sphere
+  //       sphere.position.x = 450;
+  //       sphere.position.y = 300;
+  //       sphere.position.z = 2;
+
+        // add the sphere to the scene
+        scene.add(sphere);
+
+
 			var i = 0;
 			for ( var ix = 0; ix < AMOUNTX; ix ++ ) {
 				for ( var iy = 0; iy < AMOUNTY; iy ++ ) {
@@ -95,34 +112,59 @@
 					particle.scale.x = particle.scale.y = ( Math.sin( ( ix + count ) * 0.3 ) + 1 ) * 2 + ( Math.sin( ( iy + count ) * 0.5 ) + 1 ) * 2;
 				}
 			}
+			// sphere.rotation.z+=0.01
+   //      	sphere.rotation.y+=0.01
+   //      	sphere.rotation.x+=0.01
+
 			renderer.render( scene, camera );
 			count += 0.1;
 		}
 	}
-	import { THREE } from 'three'
+	import {THREE} from 'three/index.js'
 	import earth from '../assets/earth.png'
 	export default{
 		data(){
 			return {
-				earth: earth
+				earth: earth,
+				THREE: THREE
 			}
 		},
 		mounted(){
-			start();
+			// start();
 		}
 	}
 </script>
 <style scoped>
 	.three{
-		background: #000;
+		background: #333;
 		width: 100%;
 		overflow: hidden;
+		position: relative;
+		background: url(../assets/bannerBG.jpg);
+		height: 600px;
+
 	}
-	@media screen and (max-width: 800px) {
+	@media screen and (max-width: 920px) {
 	    .three{
 	    	height: 300px!important;
 	    	display: none;
 	    }
   	}
+  	h1{
+  		position: absolute;
+  		top: 40%;
+  		color: #fff;
+  		left: 15%;
+  		margin: auto;
+  		font-size: 60px;
+  		font-weight: normal;
+  	}
+  	img{
+		width: 400px;
+		height: 400px;
+		margin-top: 100px;
+		margin-right: 10%
+  	}
+
 
 </style>

@@ -13,7 +13,8 @@
 <style scoped>
 	.container{
 		overflow: hidden;
-		width: 90%;
+		/*width: 90%;*/
+		max-width: 1366px;
 		position: relative;
 		height: 30px;
 	}
@@ -54,5 +55,27 @@
 	}
 	.right span{
 		left: -5px
+	}
+	@media screen and (max-width: 1280px) {
+	 	h3{
+	 		font-size:18px;
+	 		width: 20%;
+	 		left: 40%
+	 	}
+
+		.left,.right{
+			width: 40%;
+		}
+	}
+	@media screen and (max-width: 480px) {
+	 	h3{
+	 		font-size:14px;
+	 		width: 30%;
+	 		left: 35%
+	 	}
+
+		.left,.right{
+			width: 35%;
+		}
 	}
 </style>
