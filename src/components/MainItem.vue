@@ -20,7 +20,7 @@
 		float: left;
 		margin: 0 2.5%;
 		background-color: #fff;
-		box-shadow:0px 0px 30px rgba(100,100,100,0.7);
+		box-shadow:0px 0px 60px rgba(100,100,100,0.3);
 		transition: all 0.2s;
 		z-index: 10;
 		box-sizing: border-box;
@@ -70,7 +70,12 @@
 	 }
 	 @media screen and (max-width: 600px) {
 	 	.item{
-	 		font-size: 12px
+	 		font-size: 12px;
+	 		width: 46%!important;
+	 		margin: 2% 2%!important;
+			height: 200px;
+			overflow: hidden;
+			box-shadow:0px 0px 20px rgba(20,20,20,0.4);
 	 	}
 	 	img{
 	 		width: 60px;

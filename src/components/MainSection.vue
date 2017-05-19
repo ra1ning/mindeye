@@ -40,6 +40,7 @@
 	.main{
 		background-color: #fff;
 		max-width: 1366px;
+		padding:20px;
 		margin: 0 auto
 	}
 	.main:after{

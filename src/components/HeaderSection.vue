@@ -8,8 +8,9 @@
 	    <li><a href="#">在线咨询</a></li>
 	  </ul>
 	  <div class="hamburger">
-	  	<img class="banner" src="../assets/banner.jpg" />
+	  	<img class="banner" src="../assets/earth.png" />
 	  	<img class="logo" src="../assets/logowhite.png" />
+      <h1 class="slogn">AI改变世界</h1>
 	  	<a @click="showNav"></a>
 	  </div>
 	</div>
@@ -46,11 +47,21 @@
     top: 0
   }
   .banner{
-  	width: 100%
+  	width: 40%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .slogn{
+    position: absolute;
+    left: 20%;
+    top: 35%;
+    color: #fff;
   }
   .hamburger{
   	position: relative;
   	display: block;
+    background: url(../assets/bannerBG.jpg);
   }
   .logo{
   	width: 10%;
