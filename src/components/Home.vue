@@ -2,7 +2,6 @@
 <div class="container">
   <NavSection :class="trans"></NavSection>
   <Banner/>
-  <HeaderSection class="phone-nav"></HeaderSection>
   <TitleSection titleName="主要业务" class="title"></TitleSection>
   <MainSection></MainSection>
   <TitleSection titleName="关于我们" class="title-desc"></TitleSection>
@@ -17,7 +16,6 @@
     </span>
     <span class="more">了解更多</span>
     </p>
-    
   </div>
   
   <Foot></Foot>
@@ -31,13 +29,14 @@ import TitleSection from './TitleSection'
 import Foot from './Foot'
 import bottom from '../assets/bottom.png'
 import Banner from './Banner'
-import HeaderSection from './HeaderSection'
+
 export default {
-  components: {  NavSection,HeaderSection,MainSection, Foot, TitleSection, Banner},
+  components: { NavSection ,MainSection, Foot, TitleSection, Banner},
   data(){
     return {
       trans: 'noTrans',
-      bottom: bottom
+      bottom: bottom,
+      showOrNot: false
     }
   },
   methods:{

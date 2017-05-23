@@ -18,7 +18,9 @@
 </template>
 <script type="text/javascript">
 	var logo = require('../assets/logo.png')
+  import Banner from './Banner'
 	export default {
+    components: { Banner },
 		data(){
 			return {
         		show_nav: false,
